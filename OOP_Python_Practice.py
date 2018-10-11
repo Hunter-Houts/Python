@@ -25,7 +25,7 @@ class House(Person):
     people = []
     houseName = ""
 
-    def __init__(self,house_name):
+    def __init__(self, house_name):
         super()
         self.houseName = house_name
         self.people = []
