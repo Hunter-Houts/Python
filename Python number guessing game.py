@@ -1,26 +1,28 @@
 import random
 import time
+
 level = 0
+
+
 def main():
+    number = random.randint(1, 100)
 
-    number = random.randint(1,100)
-
-    
     def welcome():
-         print('welcome to level ' + str(level + 1) + '!')
+        print('welcome to level ' + str(level + 1) + '!')
 
-    def tryAgain():
-        try_again = input('Would you like to play again? (Yes/No): ').lower()
-        if try_again.startswith('y'):
+    def try_again():
+        again = input('Would you like to play again? (Yes/No): ').lower()
+        if again.startswith('y'):
             main()
         else:
             print('Alright, Goodbye!')
             time.sleep(3)
             quit()
-    def guessing_game(numOfguess):
+
+    def guessing_game(num_of_guess):
         guess = 0
-        print('You get ' + str(numOfguess) + ' guesses!') 
-        while guess < numOfguess:
+        print('You get ' + str(num_of_guess) + ' guesses!')
+        while guess < num_of_guess:
             user_guess = int(input('Guess a number between 1 and 100: '))
             guess += 1
             if user_guess < number:
@@ -28,22 +30,20 @@ def main():
             elif user_guess > number:
                 print('Lower')
             elif user_guess == number:
-                print('Congrates, the number was ' + str(number) + '!')
+                print('Congrats, the number was ' + str(number) + '!')
                 time.sleep(3)
                 print('You won!')
                 global level
                 level += 1
-                tryAgain()
+                try_again()
                 break
-        if guess == numOfguess:
+        if guess == num_of_guess:
             print('Sorry you ran out of guesses!')
-            tryAgain()
-    
+            try_again()
+
         else:
             print('No idea what just happened')
-        
 
-        
     if level == 0:
         welcome()
         guessing_game(10)
@@ -60,12 +60,9 @@ def main():
         welcome()
         guessing_game(2)
     elif level == 5:
-        print('Congrates you beat all the levels!')
+        print('Congrats you beat all the levels!')
         quit()
-        
-        
-        
-main()
 
-    
-        
+
+if __name__ == '__main__':
+    main()
