@@ -60,7 +60,7 @@ class House(Person):
         else:
             print("There is no one to clean the house")
 
-# Towns hold houses
+# Towns hold houses.
 
 
 class Town(House):
