@@ -22,10 +22,10 @@ def capitalize_name(s):
 
 
 def capitalize_all_names(arr):
-    for i in range(len(arr)):
-        if i < len(arr):
-            print(arr[i].title())
-            i += 1
+    new_arr = []
+    for name in arr:
+        new_arr.append(name.title())
+    return " ".join(new_arr)
 
 
 def count_vowels(s):
@@ -57,14 +57,28 @@ def analyze_word(s):
 
 
 def analyze_all_words(arr):
-    newArr = []
+    new_arr = []
     for i in range(len(arr)):
-        newArr.append(analyze_word(arr[i]))
-    return newArr
+        new_arr.append(analyze_word(arr[i]))
+    return new_arr
 
 
 def pad_array(arr, length, fill):
-    for i in range(len(arr)):
-        if i <= length and not i >= length:
-            arr = arr.append(fill)
-        return arr
+    return arr[:length] + [fill] * (length - len(arr))
+
+
+def main():
+    print(remove9s([1, 2, 3, 9, 9, 9]))
+    print(is_ten(10))
+    print(is_ten(9))
+    print(double(2))
+    print(capitalize_name("hunter"))
+    print(capitalize_all_names(["hunter", "houts"]))
+    print(count_vowels("aeiouu"))
+    print(analyze_word("hunter"))
+    print(analyze_all_words(["hunter", "houts"]))
+    print(pad_array(["a", "b", "c"], 9, "Filler"))
+
+
+if __name__ == "__main__":
+    main()
